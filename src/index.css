@@ -1,0 +1,563 @@
+@import "tailwindcss";
+
+/* Palette from the main site's dark theme. Dark only on the splash page. */
+:root {
+  color-scheme: dark;
+  --c-bg: #06103a;
+  --c-bg-deep: #040b2a;
+  --c-surface: #0c1c59;
+  --c-raised: #0f2166;
+  --c-fg: #eef1fb;
+  --c-muted: #b2bade;
+  --c-accent: #9fb1ff;
+  --c-glow: #4f6dff;
+  --c-glow-2: #8a5cff;
+  --c-line: #1d2d75;
+  --c-placeholder: #0f1e54;
+  --c-placeholder-fg: #8b97c4;
+  --c-ink: #03081f;
+
+  --gutter: clamp(1.25rem, 4vw, 8rem);
+  --header-h: 4.5rem;
+  --measure: 62ch;
+  --section-y: clamp(3.5rem, 2rem + 5vw, 6.5rem);
+
+  /* Film grain, used on the hero and as a whisper across the page. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@theme inline {
+  --font-display: var(--display-family);
+  --color-bg: var(--c-bg);
+  --color-bg-deep: var(--c-bg-deep);
+  --color-surface: var(--c-surface);
+  --color-raised: var(--c-raised);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-accent: var(--c-accent);
+  --color-glow: var(--c-glow);
+  --color-line: var(--c-line);
+  --color-placeholder: var(--c-placeholder);
+  --color-placeholder-fg: var(--c-placeholder-fg);
+  --color-ink: var(--c-ink);
+}
+
+@theme {
+  /* Display: Fraunces, with its weights, in src/font-options.css.
+     Body: Instrument Sans. Hand: Caveat (polaroid captions only).
+     All self-hosted, loaded in src/fonts.js. */
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-hand: "Caveat Variable", "Bradley Hand", "Segoe Print", cursive;
+
+  --text-display-xl: clamp(3rem, 1.4rem + 6.4vw, 8rem);
+  --text-display-xl--line-height: 0.9;
+  --text-display-lg: clamp(2.25rem, 1.5rem + 3.4vw, 4.5rem);
+  --text-display-lg--line-height: 0.98;
+  --text-display-md: clamp(1.75rem, 1.35rem + 1.8vw, 3rem);
+  --text-display-md--line-height: 1.05;
+
+  /* One motion system for everything. */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 160ms;
+  --duration-base: 320ms;
+  --duration-slow: 700ms;
+}
+
+/* Unlayered on purpose: wins over any host or embed base styles, so the page
+   is always navy with light text no matter where it renders. */
+html,
+body {
+  color-scheme: dark;
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  /* Never fake a bold: Dela Gothic One ships one (heavy) weight. */
+  font-synthesis-weight: none;
+}
+
+/* Display weights come from the active font's settings in font-options.css,
+   so heavy faces stay heavy and single-weight faces aren't faked. */
+.font-display.font-semibold {
+  font-weight: var(--display-semibold, 600);
+}
+.font-display.font-extrabold {
+  font-weight: var(--display-extrabold, 800);
+}
+.stat-num {
+  font-weight: var(--stat-weight, 700);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+  }
+  body {
+    min-height: 100svh;
+    overflow-x: clip;
+  }
+  /* A whisper of grain over everything, so flat navy reads as material. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    background-image: var(--grain);
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+  }
+  ::selection {
+    background: var(--c-accent);
+    color: var(--c-bg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+  }
+  img,
+  video,
+  iframe {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 96rem;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section-y {
+    padding-block: var(--section-y);
+  }
+
+  /* Big stat numbers. */
+  .stat-num {
+    font-family: var(--display-family);
+    letter-spacing: -0.02em;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+  }
+
+  .chip {
+    border-radius: 999px;
+    border: 1px solid var(--c-line);
+    background: color-mix(in srgb, var(--c-surface) 45%, transparent);
+    padding: 0.4rem 0.85rem;
+    font-size: 0.875rem;
+    color: var(--c-fg);
+  }
+
+  .btn {
+    display: inline-flex;
+    height: 3rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding-inline: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition:
+      background-color var(--duration-fast) var(--ease-out-expo),
+      transform var(--duration-base) var(--ease-out-expo),
+      box-shadow var(--duration-base) var(--ease-out-expo);
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    background: var(--c-fg);
+    color: var(--c-bg);
+    box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--c-glow) 70%, transparent);
+  }
+  .btn-primary:hover {
+    background: #ffffff;
+    box-shadow: 0 14px 40px -10px color-mix(in srgb, var(--c-glow) 90%, transparent);
+  }
+  .btn-ghost {
+    border: 1px solid color-mix(in srgb, var(--c-fg) 22%, transparent);
+    background: color-mix(in srgb, var(--c-fg) 6%, transparent);
+    color: var(--c-fg);
+    backdrop-filter: blur(10px);
+  }
+  .btn-ghost:hover {
+    background: color-mix(in srgb, var(--c-fg) 12%, transparent);
+  }
+
+  /* Media frames get a hairline inner edge so they sit on the navy, not in it. */
+  .frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: var(--c-surface);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, #fff 6%, transparent),
+      0 30px 60px -30px rgb(0 0 0 / 0.6);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Hero, from the main site's app.css (.hero-overlay) plus Swiper styling.
+   Phones get a bottom-up gradient too, since the text spans the full width.
+   ------------------------------------------------------------------ */
+.hero {
+  background: var(--c-ink);
+}
+.hero-overlay {
+  background:
+    linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.15) 60%, transparent),
+    linear-gradient(to right, #000000, #00000000);
+  position: absolute;
+  display: flex;
+  align-items: end;
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  .hero-overlay {
+    background: linear-gradient(to right, #000000, #00000000);
+  }
+}
+
+/* Swiper: white controls; arrows sit as a pair bottom-right, above the overlay
+   so they're clickable. Arrows hide on phones (swipe instead). */
+.hero {
+  --swiper-theme-color: #ffffff;
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.45;
+  --swiper-pagination-bottom: 1.5rem;
+  --swiper-navigation-size: 2.75rem;
+}
+.hero .swiper {
+  z-index: auto;
+}
+.hero .swiper .swiper-pagination {
+  z-index: 2;
+}
+.hero .swiper.swiper-horizontal .swiper-button-prev,
+.hero .swiper.swiper-horizontal .swiper-button-next {
+  top: auto;
+  bottom: 1.25rem;
+  margin-top: 0;
+  z-index: 2;
+  display: none;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  background: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color var(--duration-fast) var(--ease-out-expo);
+}
+.hero .swiper.swiper-horizontal .swiper-button-prev:hover,
+.hero .swiper.swiper-horizontal .swiper-button-next:hover {
+  background: rgb(255 255 255 / 0.2);
+}
+.hero .swiper-button-prev svg,
+.hero .swiper-button-next svg {
+  width: 38%;
+  height: 38%;
+}
+.hero .swiper.swiper-horizontal .swiper-button-prev {
+  left: auto;
+  right: calc(var(--gutter) + var(--swiper-navigation-size) + 0.5rem);
+}
+.hero .swiper.swiper-horizontal .swiper-button-next {
+  right: var(--gutter);
+}
+@media (min-width: 768px) {
+  .hero .swiper.swiper-horizontal .swiper-button-prev,
+  .hero .swiper.swiper-horizontal .swiper-button-next {
+    display: flex;
+  }
+}
+
+/* Two slow light sources drifting behind everything (used in the contact panel). */
+.hero-aurora {
+  position: absolute;
+  inset: -20%;
+  filter: blur(70px);
+  opacity: 0.75;
+  mix-blend-mode: screen;
+}
+.hero-aurora::before,
+.hero-aurora::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.hero-aurora::before {
+  width: 55%;
+  height: 60%;
+  left: 40%;
+  top: 5%;
+  background: radial-gradient(circle, var(--c-glow) 0%, transparent 65%);
+  animation: aurora-a 18s ease-in-out infinite alternate;
+}
+.hero-aurora::after {
+  width: 45%;
+  height: 50%;
+  left: 60%;
+  top: 35%;
+  background: radial-gradient(circle, var(--c-glow-2) 0%, transparent 65%);
+  animation: aurora-b 22s ease-in-out infinite alternate;
+}
+@keyframes aurora-a {
+  to {
+    transform: translate(-18%, 12%) scale(1.15);
+  }
+}
+@keyframes aurora-b {
+  to {
+    transform: translate(-25%, -15%) scale(0.9);
+  }
+}
+.hero-grain {
+  position: absolute;
+  inset: -50%;
+  background-image: var(--grain);
+  background-size: 260px 260px;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  animation: grain 0.9s steps(6) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  17% { transform: translate(-6%, 4%); }
+  33% { transform: translate(5%, -7%); }
+  50% { transform: translate(-3%, 9%); }
+  67% { transform: translate(8%, 2%); }
+  83% { transform: translate(-9%, -4%); }
+  100% { transform: translate(2%, 6%); }
+}
+
+/* ------------------------------------------------------------------
+   "One person. The whole pipeline." strip.
+   From md up, this is the main site's app.css verbatim (.palette,
+   .explore-work-card, .explore-work-text-banner). Below md it becomes
+   a 2x2 grid so each card has room for its label.
+   ------------------------------------------------------------------ */
+.palette {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+}
+
+.explore-work-card {
+  height: 15rem;
+  display: flex;
+  position: relative;
+  font-weight: 600;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  transition:
+    flex 0.3s ease-in-out,
+    filter 0.3s ease;
+}
+
+.explore-work-text-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(175, 175, 175, 0.595);
+  border-radius: 0 15px 0 0;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
+  transition:
+    padding 0.3s ease-in-out,
+    font-size 0.3s ease-in-out;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .palette {
+    display: flex;
+    height: 500px;
+  }
+
+  .explore-work-card {
+    height: 100%;
+    flex: 1;
+  }
+
+  .explore-work-text-banner {
+    padding: 10px 10px 10px 10px;
+    font-size: 1.1rem;
+  }
+
+  .explore-work-card:hover .explore-work-text-banner,
+  .explore-work-card:focus-visible .explore-work-text-banner {
+    padding: 15px 40px 15px 20px;
+    font-size: 1.4rem;
+  }
+
+  .explore-work-card:hover,
+  .explore-work-card:focus-visible,
+  .explore-work-text-banner {
+    flex: 2;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .palette:has(.explore-work-card:hover) .explore-work-card:not(:hover) {
+    filter: brightness(0.5);
+  }
+}
+
+.explore-work-card:hover span {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------
+   Sector cards: one slow, endless row. The track holds two copies of
+   the list and slides by exactly one copy, then loops.
+   ------------------------------------------------------------------ */
+.marquee {
+  --marquee-gap: 0.75rem;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 70s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-set {
+  display: flex;
+  gap: var(--marquee-gap);
+  padding-right: var(--marquee-gap);
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.sector-card {
+  width: max-content;
+  max-width: 19rem;
+  padding: 1rem 1.25rem 1.1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--c-line);
+  background: color-mix(in srgb, var(--c-surface) 50%, transparent);
+}
+.sector-tag {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  background: color-mix(in srgb, var(--c-accent) 14%, transparent);
+}
+
+/* Fallback art for media that hasn't loaded or isn't set yet. */
+.gradient-art {
+  background:
+    radial-gradient(circle at var(--ga-x, 25%) var(--ga-y, 30%), color-mix(in srgb, var(--c-glow) 80%, transparent) 0, transparent 50%),
+    radial-gradient(circle at var(--ga-x2, 78%) var(--ga-y2, 72%), color-mix(in srgb, var(--c-glow-2) 70%, transparent) 0, transparent 50%),
+    linear-gradient(160deg, var(--c-raised), var(--c-bg-deep));
+}
+.gradient-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain);
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+}
+
+/* ------------------------------------------------------------------
+   Scroll reveals. Only hide content when JS is running, and never
+   when the visitor prefers reduced motion.
+   ------------------------------------------------------------------ */
+.js [data-reveal] {
+  opacity: 0;
+  translate: 0 1.5rem;
+  transition:
+    opacity var(--duration-slow) var(--ease-out-expo),
+    translate var(--duration-slow) var(--ease-out-expo);
+}
+.js [data-reveal][data-revealed] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Lightbox */
+dialog.lightbox {
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  padding: 0;
+  background: color-mix(in srgb, var(--c-ink) 94%, transparent);
+  color: var(--c-fg);
+}
+dialog.lightbox::backdrop {
+  background: transparent;
+}
+dialog.lightbox[open] {
+  animation: fade-in var(--duration-base) var(--ease-out-expo);
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-grain,
+  .hero-aurora::before,
+  .hero-aurora::after {
+    animation: none;
+  }
+  /* No drift: the client cards become a plain horizontal scroller. */
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+    padding-inline: var(--gutter);
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-copy {
+    display: none;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    translate: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
