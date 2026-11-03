@@ -10,8 +10,6 @@ const cld = new Cloudinary({
   url: { analytics: false },
 });
 
-// "/portfolio/x.jpg" and "portfolio/x.jpg" both work. A leading slash would
-// otherwise produce a double slash in the URL.
 const clean = (publicId) => publicId.replace(/^\/+/, "");
 
 export function cldUrl(publicId, imageWidth = 1600) {
@@ -24,8 +22,12 @@ export function cldUrl(publicId, imageWidth = 1600) {
 }
 
 /** srcset so phones download a phone-sized file. */
-export function cldSrcSet(publicId, widths = [640, 960, 1280, 1920, 2560]) {
-  return widths.map((w) => `${cldUrl(publicId, w)} ${w}w`).join(", ");
+export function cldSrcSet(
+  publicId,
+  widths = [640, 960, 1280, 1920, 2560],
+  position = "middle",
+) {
+  return widths.map((w) => `${cldUrl(publicId, w, position)} ${w}w`).join(", ");
 }
 
 /** Hosted video (the Motion loop). */

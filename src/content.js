@@ -1,15 +1,3 @@
-/**
- * Every word and media reference on the page lives here.
- *
- * Media:
- *   image:     Cloudinary public ID (same format as the main site's cldUrl calls)
- *   youtubeId: the ID from youtube.com/watch?v=THIS_PART
- *   loop:      Cloudinary *video* public ID for a muted autoplay loop
- * Anything left null renders a labeled placeholder, so the page never breaks.
- *
- * Lines marked CONFIRM are self-reported or need your sign-off before you send the link.
- */
-
 export const person = {
   name: "Kyle Pickard",
   role: "Full-stack marketer",
@@ -17,31 +5,53 @@ export const person = {
   email: "kylepickard95@gmail.com",
   linkedin: null, // CONFIRM: paste your LinkedIn URL. Hidden while null.
   resume: null, // Path or URL to a PDF. Hidden while null.
-  availability: "Open to full-time roles in the SF Bay Area: on-site, hybrid, or remote.",
+  availability:
+    "Open to full-time roles in the SF Bay Area: on-site, hybrid, or remote.",
   portrait: "portfolio/Bio_Image.jpg",
 };
 
-/** Same copy and slides as the main site's HomeHero / HeroSlideshow. */
 export const hero = {
   title: "Idea to launch.",
   subtitle: "Without changing hands.",
-  // The <br> from the main site's hero is kept: it breaks after "and" on desktop only.
-  descriptionLines: ["I bring strategy, creative, development, and", "analytics together to turn ideas into results."],
-  // Slideshow frames, in order. Cloudinary public IDs (same as HeroSlideshow imgConfig).
-  slides: ["portfolio/hero/IMG_0023_copy", "portfolio/Interview_thumb.jpg"],
+  descriptionLines: [
+    "I bring strategy, creative, development, and",
+    "analytics together to turn ideas into results.",
+  ],
+
+  slides: [
+    { id: "portfolio/hero/Steak.jpg", position: "bottom" },
+    { id: "portfolio/hero/DSC05992.jpg", position: "middle" },
+    { id: "portfolio/hero/IMG_0023_copy", position: "middle" },
+    { id: "portfolio/Interview_thumb.jpg", position: "top" },
+  ],
 };
 
-/**
- * "One person. The whole pipeline." cards. Same four cards, images, and icons
- * as the main site's app/data/disciplines.js. target is the section each card jumps to.
- */
 export const pipeline = {
   title: ["One person.", "The whole pipeline."],
-  description: "Six disciplines I own day to day. Pick one, or scroll through all of them.",
+  description:
+    "Six disciplines I own day to day. Pick one, or scroll through all of them.",
   cards: [
-    { id: "video", label: "Videography", image: "portfolio/3xAfdjyQ.jpg", icon: "video", target: "video" },
-    { id: "photo", label: "Photography", image: "portfolio/IMG_0023_copy.jpg", icon: "photography", target: "photography" },
-    { id: "campaigns", label: "Campaigns", image: "portfolio/Fire_Campaign.jpg", icon: "campaigns", target: "paid-media" },
+    {
+      id: "video",
+      label: "Videography",
+      image: "portfolio/3xAfdjyQ.jpg",
+      icon: "video",
+      target: "video",
+    },
+    {
+      id: "photo",
+      label: "Photography",
+      image: "portfolio/IMG_0023_copy.jpg",
+      icon: "photography",
+      target: "photography",
+    },
+    {
+      id: "campaigns",
+      label: "Campaigns",
+      image: "portfolio/Fire_Campaign.jpg",
+      icon: "campaigns",
+      target: "paid-media",
+    },
     {
       id: "web",
       label: "Web",
@@ -52,10 +62,6 @@ export const pipeline = {
   ],
 };
 
-/**
- * One section per discipline, in display order.
- * layout: "split" (text beside media, sides alternate automatically) or "bleed" (full-width media).
- */
 export const disciplines = [
   {
     id: "paid-media",
@@ -63,11 +69,21 @@ export const disciplines = [
     icon: "campaigns",
     headline: "Ad spend that shows its work.",
     body: "I plan and run paid campaigns across Meta, connected TV, programmatic display, email, and print partners. I set the targeting, build the creative and landing pages, pace the budget, and close with a report that says plainly what each channel delivered.",
-    capabilities: ["Meta Ads", "CTV & programmatic", "Media partnerships", "Landing pages", "Email", "Reporting"],
+    capabilities: [
+      "Meta Ads",
+      "CTV & programmatic",
+      "Media partnerships",
+      "Landing pages",
+      "Email",
+      "Reporting",
+    ],
     stats: [
       { value: "660K+", label: "Paid impressions in a five-week flight" },
       { value: "5×", label: "Event site traffic, April to June" },
-      { value: "97.7%", label: "Of connected-TV viewers watched the full spot" },
+      {
+        value: "97.7%",
+        label: "Of connected-TV viewers watched the full spot",
+      },
       { value: "$0.33", label: "Per landing-page view on Meta" },
     ],
     layout: "split",
@@ -87,10 +103,20 @@ export const disciplines = [
     icon: "video",
     headline: "Films made for the moment that counts.",
     body: "I direct, shoot, and edit, from fundraising films to 15-second social cuts. Every year I film at Camp Okizu and cut the piece that plays right before the gala's paddle raise, when the room decides how much to give.",
-    capabilities: ["Directing", "Cinematography", "Editing & color", "Drone", "Event recaps", "Short-form social"],
+    capabilities: [
+      "Directing",
+      "Cinematography",
+      "Editing & color",
+      "Drone",
+      "Event recaps",
+      "Short-form social",
+    ],
     stats: [
       // CONFIRM: self-reported, and that you're cleared to publish it.
-      { value: "$8M+", label: "Raised across seven years of galas my films helped open" },
+      {
+        value: "$8M+",
+        label: "Raised across seven years of galas my films helped open",
+      },
     ],
     layout: "split",
     feature: {
@@ -109,7 +135,14 @@ export const disciplines = [
     icon: "social",
     headline: "Channels that never go quiet.",
     body: "I run social day to day: the content calendar, the shoots and edits, the captions, the scheduling, and the monthly report. For the Novato Chamber of Commerce, that means year-round coverage of member events, award campaigns like Business of the Year, and the build-up to its biggest festival. At Edgewood, I coach youth leaders to make their own short-form video.",
-    capabilities: ["Content calendars", "Short-form video", "Captions & copy", "Community management", "Hootsuite", "Analytics & reporting"],
+    capabilities: [
+      "Content calendars",
+      "Short-form video",
+      "Captions & copy",
+      "Community management",
+      "Hootsuite",
+      "Analytics & reporting",
+    ],
     // CONFIRM: add 1–2 numbers if you have them (follower growth, engagement rate, reach).
     stats: [],
     layout: "split",
@@ -129,7 +162,14 @@ export const disciplines = [
     icon: "integrated",
     headline: "One message, everywhere people look.",
     body: "Wildfire prevention only works if residents act before fire season. For Novato Fire, I carried one ask across educational videos, social, mailers, street banners, bus shelters, email, and the website I built, so people met it wherever they were.",
-    capabilities: ["Campaign strategy", "Educational video", "Organic social", "Print & out-of-home", "Email", "Web"],
+    capabilities: [
+      "Campaign strategy",
+      "Educational video",
+      "Organic social",
+      "Print & out-of-home",
+      "Email",
+      "Web",
+    ],
     stats: [{ value: "6", label: "Channels carrying one campaign" }],
     layout: "split",
     feature: {
@@ -148,10 +188,20 @@ export const disciplines = [
     icon: "web",
     headline: "Websites that carry the brand and the traffic.",
     body: "I design and build sites in WordPress, Webflow, and React, and handle SEO migrations so a relaunch keeps the rankings the old site earned. For Edgewood, our team rebuilt the brand first, with a new logo, tagline, and guide, then built a site to carry it.",
-    capabilities: ["UI/UX design", "WordPress", "Webflow", "React", "SEO migration", "Analytics"],
+    capabilities: [
+      "UI/UX design",
+      "WordPress",
+      "Webflow",
+      "React",
+      "SEO migration",
+      "Analytics",
+    ],
     stats: [
       // CONFIRM: self-reported, and that you're cleared to publish it.
-      { value: "$900K", label: "In donations the new brand and site have helped bring in" },
+      {
+        value: "$900K",
+        label: "In donations the new brand and site have helped bring in",
+      },
     ],
     layout: "split",
     feature: {
@@ -170,7 +220,14 @@ export const disciplines = [
     icon: "photo",
     headline: "The images the rest of the campaign runs on.",
     body: "Events, food, portraits, campuses, and aerials, shot on Sony A7R IV and A7S III and finished in Lightroom. I shoot with every end use in mind, so one session covers the ad, the post, the site, and the print piece.",
-    capabilities: ["Events", "Food", "Portraits", "Architecture & campus", "Aerial", "Retouching"],
+    capabilities: [
+      "Events",
+      "Food",
+      "Portraits",
+      "Architecture & campus",
+      "Aerial",
+      "Retouching",
+    ],
     stats: [],
     layout: "strip",
     // Polaroid strip, same component as the main site's FeaturedPhotos.
@@ -178,7 +235,12 @@ export const disciplines = [
     // image: Cloudinary public ID. caption: the handwritten line under the photo
     // (falls back to subject). Each photo with an image opens in the lightbox.
     photos: [
-      { image: "portfolio/IMG_0023_copy.jpg", alt: "[Describe the photo]", subject: "Event", caption: null }, // CONFIRM subject + alt
+      {
+        image: "portfolio/IMG_0023_copy.jpg",
+        alt: "[Describe the photo]",
+        subject: "Event",
+        caption: null,
+      }, // CONFIRM subject + alt
       { image: null, alt: "", subject: "Food", caption: null },
       { image: null, alt: "", subject: "Event", caption: null },
       { image: null, alt: "", subject: "Food", caption: null },
@@ -197,12 +259,17 @@ export const disciplines = [
  */
 export const clientTypes = {
   headline: "Who I've done it for",
-  intro: "Mostly lean, mission-driven teams that needed one person to cover a lot of ground.",
+  intro:
+    "Mostly lean, mission-driven teams that needed one person to cover a lot of ground.",
   sectors: [
     {
       name: "Nonprofits & fundraising",
       market: "B2C",
-      organizations: ["Children's charities", "Advocacy groups", "Community organizations"],
+      organizations: [
+        "Children's charities",
+        "Advocacy groups",
+        "Community organizations",
+      ],
     },
     {
       name: "Public agencies",
@@ -212,7 +279,11 @@ export const clientTypes = {
     {
       name: "Chambers & local business",
       market: "B2B",
-      organizations: ["Chambers of commerce", "Small businesses", "Community festivals"],
+      organizations: [
+        "Chambers of commerce",
+        "Small businesses",
+        "Community festivals",
+      ],
     },
     {
       name: "Education",
@@ -244,13 +315,24 @@ export const about = {
     "It taught me to care about the result, not just my part of it. On a team, that means fewer handoffs, faster turnarounds, and one person who knows how every piece connects.",
   ],
   tools: [
-    { group: "Video & motion", items: "Premiere Pro, DaVinci Resolve, Final Cut Pro, After Effects, CapCut" },
-    { group: "Photo & design", items: "Lightroom, Photoshop, Illustrator, Figma" },
+    {
+      group: "Video & motion",
+      items:
+        "Premiere Pro, DaVinci Resolve, Final Cut Pro, After Effects, CapCut",
+    },
+    {
+      group: "Photo & design",
+      items: "Lightroom, Photoshop, Illustrator, Figma",
+    },
     { group: "Web", items: "WordPress, Webflow, React, Tailwind CSS" },
-    { group: "Cameras", items: "Sony A7R IV, A7S III, plus Fujifilm, Canon, Blackmagic" },
+    {
+      group: "Cameras",
+      items: "Sony A7R IV, A7S III, plus Fujifilm, Canon, Blackmagic",
+    },
     {
       group: "On every project",
-      items: "Copywriting, organic social, email marketing, analytics and reporting, project management",
+      items:
+        "Copywriting, organic social, email marketing, analytics and reporting, project management",
     },
   ],
 };

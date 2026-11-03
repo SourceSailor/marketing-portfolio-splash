@@ -5,12 +5,6 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { CldImage } from "./Media.jsx";
 
-/**
- * Ported from the main site's app/components/HeroSlideshow.jsx.
- * Same Swiper modules and settings. Changes: slides come from content.js,
- * each slide has a key, the debug console.logs are gone, and each image
- * uses a responsive srcset with an on-brand fallback if it fails to load.
- */
 export default function HeroSlideshow({ slides }) {
   return (
     <div className="hero-slideshow absolute inset-0">
@@ -31,9 +25,19 @@ export default function HeroSlideshow({ slides }) {
           disableOnInteraction: false,
         }}
       >
-        {slides.map((id, i) => (
-          <SwiperSlide key={id} className="h-full w-full">
-            <CldImage id={id} alt="" priority={i === 0} sizes="100vw" className="h-full w-full object-cover" />
+        {slides.map((slide, i) => (
+          <SwiperSlide key={slide.id} className="h-full w-full">
+            <CldImage
+              id={slide.id}
+              alt=""
+              priority={i === 0}
+              sizes="100vw"
+              className="h-full w-full object-cover [object-position:var(--pos-sm)] md:[object-position:var(--pos)]"
+              style={{
+                "--pos": slide.position ?? "center",
+                "--pos-sm": slide.mobile ?? slide.position ?? "center",
+              }}
+            />
           </SwiperSlide>
         ))}
         <div className="swiper-button-next"></div>

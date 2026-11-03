@@ -23,7 +23,11 @@ export function Placeholder({ seedKey = "", caption, className = "" }) {
   };
 
   return (
-    <div aria-hidden="true" className={`gradient-art relative h-full w-full ${className}`} style={style}>
+    <div
+      aria-hidden="true"
+      className={`gradient-art relative h-full w-full ${className}`}
+      style={style}
+    >
       {caption && (
         <span className="absolute top-3 right-3 rounded-full bg-ink/40 px-2.5 py-1 text-[11px] font-medium tracking-wide text-fg/70 backdrop-blur">
           {caption}
@@ -34,15 +38,31 @@ export function Placeholder({ seedKey = "", caption, className = "" }) {
 }
 
 /** Responsive Cloudinary image that fills its (sized) parent. */
-export function CldImage({ id, alt = "", sizes = "100vw", priority = false, caption, className = "" }) {
+export function CldImage({
+  id,
+  alt = "",
+  sizes = "100vw",
+  priority = false,
+  caption,
+  className = "",
+  style,
+}) {
   const [failed, setFailed] = useState(false);
-  if (!id || failed) return <Placeholder seedKey={id ?? caption} caption={id ? null : caption} className={className} />;
+  if (!id || failed)
+    return (
+      <Placeholder
+        seedKey={id ?? caption}
+        caption={id ? null : caption}
+        className={className}
+      />
+    );
 
   return (
     <img
       src={cldUrl(id, 1600)}
       srcSet={cldSrcSet(id)}
       sizes={sizes}
+      style={style}
       alt={alt}
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : "auto"}
@@ -58,7 +78,8 @@ export function Loop({ id, caption }) {
   if (!id) return <Placeholder seedKey="motion-loop" caption={caption} />;
 
   const reduce =
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   return (
     <video
