@@ -19,10 +19,30 @@ export const hero = {
   ],
 
   slides: [
-    { id: "portfolio/hero/Steak.jpg", position: "bottom" },
-    { id: "portfolio/hero/DSC05992.jpg", position: "middle" },
-    { id: "portfolio/hero/IMG_0023_copy", position: "middle" },
-    { id: "portfolio/Interview_thumb.jpg", position: "top" },
+    {
+      id: "portfolio/hero/Pork_Short_Rib_at_Fireplace_flipped.jpg",
+      position: "bottom",
+    },
+    {
+      id: "portfolio/hero/Guitarist_in_Green_Stage_Lights.png",
+      position: "middle",
+    },
+    {
+      id: "portfolio/hero/Ferrari_488_text_space.jpg",
+      position: "middle",
+    },
+    {
+      id: "portfolio/hero/PEJU_Merlot_in_Bronze_Eagle_Holder.png",
+      position: "middle",
+    },
+    {
+      id: "portfolio/hero/Wildland_Firefighter_Through_Smoky_Grass.png",
+      position: "middle",
+    },
+    {
+      id: "portfolio/hero/Classroom_Library_Interview_Portrait.png",
+      position: "top",
+    },
   ],
 };
 
@@ -94,7 +114,7 @@ export const disciplines = [
       image: "portfolio/3xAfdjyQ.jpg",
       alt: "Crowd at the Novato Art, Wine & Music Festival",
       youtubeId: null,
-      link: null, // e.g. { href: "https://...", label: "See the festival site" }
+      link: null,
     },
   },
   {
@@ -112,7 +132,6 @@ export const disciplines = [
       "Short-form social",
     ],
     stats: [
-      // CONFIRM: self-reported, and that you're cleared to publish it.
       {
         value: "$8M+",
         label: "Raised across seven years of galas my films helped open",
@@ -125,7 +144,7 @@ export const disciplines = [
       role: "Shoot, edit, gala photography, recap",
       image: "DSC07297.jpg",
       alt: "Still from the Camp Okizu gala film",
-      youtubeId: null, // CONFIRM: add the film's YouTube ID and the card becomes a play button.
+      youtubeId: null,
       link: null,
     },
   },
@@ -143,14 +162,13 @@ export const disciplines = [
       "Hootsuite",
       "Analytics & reporting",
     ],
-    // CONFIRM: add 1–2 numbers if you have them (follower growth, engagement rate, reach).
     stats: [],
     layout: "split",
     feature: {
       client: "Novato Chamber of Commerce",
       title: "Year-round social channels",
-      role: "Strategy, content, captions, scheduling, reporting", // CONFIRM
-      image: null, // CONFIRM: Cloudinary ID for a social grid, post, or phone mockup.
+      role: "Strategy, content, captions, scheduling, reporting",
+      image: "portfolio/hero/IMG_0800_copy.jpg",
       alt: "Novato Chamber of Commerce social media posts",
       youtubeId: null,
       link: null,
@@ -197,7 +215,6 @@ export const disciplines = [
       "Analytics",
     ],
     stats: [
-      // CONFIRM: self-reported, and that you're cleared to publish it.
       {
         value: "$900K",
         label: "In donations the new brand and site have helped bring in",
@@ -211,7 +228,7 @@ export const disciplines = [
       image: "edgewood-mockup-full-site.png",
       alt: "The new Edgewood website on laptop and phone",
       youtubeId: null,
-      link: null, // e.g. { href: "https://...", label: "Visit the live site" }
+      link: null,
     },
   },
   {

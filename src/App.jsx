@@ -51,9 +51,16 @@ export default function App() {
       <main id="main">
         <Hero />
         <DisciplineIndex />
+
         {disciplines.map((d, i) => (
-          <Discipline key={d.id} discipline={d} index={i} onOpen={setLightboxItem} />
+          <Discipline
+            key={d.id}
+            discipline={d}
+            index={i}
+            onOpen={setLightboxItem}
+          />
         ))}
+
         <Breadth />
         <About />
         <Contact />

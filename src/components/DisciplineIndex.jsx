@@ -12,11 +12,6 @@ const iconFiles = {
   web: [icons.web, icons.webHover],
 };
 
-/**
- * Ported from the main site's app/components/homepage/Disciplines.jsx:
- * same Card, IconDisplay, classes, and CSS. Changes: each card is a link to
- * its section on this page, and below md the strip becomes a 2×2 grid.
- */
 const Card = ({ image, disciplines, icon, iconHover, href }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
@@ -34,7 +29,11 @@ const Card = ({ image, disciplines, icon, iconHover, href }) => {
         <IconDisplay icon={icon} iconHover={iconHover} isHovered={isHovered} />
       </div>
 
-      <CldImage id={image} sizes="(min-width: 768px) 40vw, 50vw" className="h-full w-full object-cover" />
+      <CldImage
+        id={image}
+        sizes="(min-width: 768px) 40vw, 50vw"
+        className="h-full w-full object-cover"
+      />
     </a>
   );
 };
@@ -45,22 +44,40 @@ const IconDisplay = ({ icon, iconHover, isHovered }) => {
 
   return (
     <div className="relative h-7 w-7 shrink-0">
-      <img src={icon} className={`${iconStyles} ${!isHovered ? "scale-100 opacity-100" : "opacity-0"}`} alt="" />
+      <img
+        src={icon}
+        className={`${iconStyles} ${!isHovered ? "scale-100 opacity-100" : "opacity-0"}`}
+        alt=""
+      />
 
-      <img className={`${iconStyles} ${isHovered ? "scale-120 opacity-100" : "opacity-0"}`} src={iconHover} alt="" />
+      <img
+        className={`${iconStyles} ${isHovered ? "scale-120 opacity-100" : "opacity-0"}`}
+        src={iconHover}
+        alt=""
+      />
     </div>
   );
 };
 
 export default function DisciplineIndex() {
   return (
-    <section id="what-i-do" aria-labelledby="index-heading" className="section-y" data-reveal>
+    <section
+      id="what-i-do"
+      aria-labelledby="index-heading"
+      className="section-y"
+      data-reveal
+    >
       <div className="container-page mb-10 grid gap-5 md:grid-cols-12 md:items-end">
-        <h2 id="index-heading" className="font-display text-display-lg font-semibold tracking-tight md:col-span-7">
+        <h2
+          id="index-heading"
+          className="font-display text-display-lg font-semibold tracking-tight md:col-span-7"
+        >
           {pipeline.title[0]}
           <span className="block text-accent">{pipeline.title[1]}</span>
         </h2>
-        <p className="text-lg leading-relaxed text-fg/90 md:col-span-4 md:col-start-9">{pipeline.description}</p>
+        <p className="text-lg leading-relaxed text-fg/90 md:col-span-4 md:col-start-9">
+          {pipeline.description}
+        </p>
       </div>
 
       <div className="flex flex-col gap-10">
