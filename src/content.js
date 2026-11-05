@@ -49,7 +49,7 @@ export const hero = {
 export const pipeline = {
   title: ["One person.", "The whole pipeline."],
   description:
-    "Six disciplines I own day to day. Pick one, or scroll through all of them.",
+    "From concept to the final execution, here's a look at what I do.",
   cards: [
     {
       id: "video",
@@ -87,15 +87,15 @@ export const disciplines = [
     id: "paid-media",
     label: "Paid media",
     icon: "campaigns",
-    headline: "Ad spend that shows its work.",
-    body: "I plan and run paid campaigns across Meta, connected TV, programmatic display, email, and print partners. I set the targeting, build the creative and landing pages, pace the budget, and close with a report that says plainly what each channel delivered.",
+    headline: "Turning Ad Spend Into Results.",
+    body: "Effective paid media goes beyond impressions and clicks. By combining media strategy, creative production, and data-driven decision-making, I take full ownership of campaigns from planning through execution and reporting, driving measurable results and business growth.",
     capabilities: [
-      "Meta Ads",
-      "CTV & programmatic",
-      "Media partnerships",
+      "Media Strategy",
+      "Creative Strategy",
       "Landing pages",
-      "Email",
-      "Reporting",
+      "Content Creation",
+      "Email Marketing",
+      "Performance Analytics",
     ],
     stats: [
       { value: "660K+", label: "Paid impressions in a five-week flight" },
