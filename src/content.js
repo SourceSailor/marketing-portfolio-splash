@@ -121,8 +121,8 @@ export const disciplines = [
     id: "video",
     label: "Video",
     icon: "video",
-    headline: "Films made for the moment that counts.",
-    body: "I direct, shoot, and edit, from fundraising films to 15-second social cuts. Every year I film at Camp Okizu and cut the piece that plays right before the gala's paddle raise, when the room decides how much to give.",
+    headline: "Turning Frames Into Stories.",
+    body: "Some stories are meant to be shared in seconds. Others deserve a little more time.  Through a mix of creative direction, production, and post-production, I create content that informs, inspires, and connects with audiences. My work spans promotional campaigns, social media, interviews, and event storytelling",
     capabilities: [
       "Directing",
       "Cinematography",
