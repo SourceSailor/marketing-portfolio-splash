@@ -152,8 +152,8 @@ export const disciplines = [
     id: "social",
     label: "Social media",
     icon: "social",
-    headline: "Channels that never go quiet.",
-    body: "I run social day to day: the content calendar, the shoots and edits, the captions, the scheduling, and the monthly report. For the Novato Chamber of Commerce, that means year-round coverage of member events, award campaigns like Business of the Year, and the build-up to its biggest festival. At Edgewood, I coach youth leaders to make their own short-form video.",
+    headline: "Growing Brands, One Post at a Time.",
+    body: "Every platform has its own audience, and every organization has a different story to tell. I bring those stories to life through social strategy, content creation, and day-to-day channel management. From highlighting members and major events for the Novato Chamber of Commerce to helping youth leaders at Edgewood create their own short-form videos, my work is all about making social media more engaging, authentic, and meaningful.",
     capabilities: [
       "Content calendars",
       "Short-form video",
