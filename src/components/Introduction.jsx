@@ -39,11 +39,10 @@ const Introduction = () => {
 
           <p className="mt-6 max-w-(--measure) text-lg leading-relaxed text-fg/90">
             Hi, I'm Kyle! I'm a Bay Area marketer, creator, and developer with a
-            passion for bringing projects to life from start to finish. Some
-            days you'll find me behind a camera; others, I'm developing
-            websites, building campaigns, or digging into performance data.
-            Here's a little look at what I do, what I've made, and how I
-            approach my work.
+            passion for turning ideas into meaningful work. Some days you'll
+            find me behind a camera; others, I'm developing websites, building
+            campaigns, or digging into performance data. Here's a little look at
+            what I do, what I've made, and how I approach my work.
           </p>
         </div>
       </div>
