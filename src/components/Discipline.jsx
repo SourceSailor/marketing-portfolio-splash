@@ -46,7 +46,7 @@ export default function Discipline({ discipline: d, index, onOpen }) {
       {d.stats.length > 0 && (
         <dl className="mt-9 grid gap-x-12 gap-y-7 border-t border-line pt-7 sm:grid-cols-2">
           {d.stats.map((s) => (
-            <div key={s.label} className="flex flex-col-reverse">
+            <div key={s.label} className="flex flex-col-reverse justify-end">
               <dt className="mt-2 max-w-[26ch] text-sm leading-snug text-muted">
                 {s.label}
               </dt>
@@ -107,7 +107,7 @@ export default function Discipline({ discipline: d, index, onOpen }) {
 /** Featured media with the G3-style title tab cut into its bottom edge. Opens the lightbox. */
 function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
   const isLoop = "loop" in f;
-  const canOpen = !isLoop && (f.youtubeId || f.image);
+  const canOpen = !isLoop && (f.vimeoId || f.image);
   const hasTab = f.client || f.title;
 
   const media = isLoop ? (
@@ -115,7 +115,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
   ) : (
     <CldImage
       id={f.image}
-      alt={f.youtubeId ? "" : f.alt}
+      alt={f.vimeoId ? "" : f.alt}
       sizes={sizes}
       caption={label}
       className="transition-transform duration-(--duration-slow) ease-(--ease-out-expo) group-hover:scale-[1.03]"
@@ -126,7 +126,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
     <>
       {media}
 
-      {f.youtubeId && (
+      {f.vimeoId && (
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 flex items-center justify-center"
@@ -139,7 +139,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
         </span>
       )}
 
-      {canOpen && !f.youtubeId && (
+      {canOpen && !f.vimeoId && (
         <span className="pointer-events-none absolute top-4 right-4 rounded-full bg-ink/60 px-3 py-1.5 text-xs font-medium text-white opacity-0 backdrop-blur transition-opacity duration-(--duration-base) group-hover:opacity-100 group-focus-visible:opacity-100">
           View larger
         </span>
@@ -172,13 +172,13 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
             onOpen({
               image: f.image,
               alt: f.alt,
-              youtubeId: f.youtubeId,
+              vimeoId: f.vimeoId,
               caption: [f.client, f.title].filter(Boolean).join(": ") || label,
             })
           }
         >
           <span className="sr-only">
-            {f.youtubeId ? "Play" : "View"} {f.title ?? label}
+            {f.vimeoId ? "Play" : "View"} {f.title ?? label}
           </span>
           {inner}
         </button>
@@ -186,7 +186,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
         <div className={frame}>{inner}</div>
       )}
 
-      {/* {(f.role || f.link) && (
+      {(f.role || f.link) && (
         <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 text-sm">
           {f.role && (
             <span className="text-muted">
@@ -209,7 +209,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
             </a>
           )}
         </figcaption>
-      )} */}
+      )}
     </figure>
   );
 }

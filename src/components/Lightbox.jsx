@@ -65,14 +65,17 @@ export default function Lightbox({ item, onClose }) {
             </button>
           </div>
 
-          <div className="flex min-h-0 flex-1 items-center justify-center px-(--gutter)" onClick={closeOnBackdrop}>
-            {current.youtubeId ? (
+          <div
+            className="flex min-h-0 flex-1 items-center justify-center px-(--gutter)"
+            onClick={closeOnBackdrop}
+          >
+            {current.vimeoId ? (
               <div className="aspect-video w-full max-w-6xl bg-black">
                 <iframe
                   className="h-full w-full"
-                  src={`https://www.youtube-nocookie.com/embed/${current.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                  src={vimeoSrc(current.vimeoId)}
                   title={item.caption}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
                   allowFullScreen
                 />
               </div>
@@ -102,4 +105,16 @@ export default function Lightbox({ item, onClose }) {
       )}
     </dialog>
   );
+}
+function vimeoSrc(vimeoId) {
+  const [id, hash] = String(vimeoId).split("/");
+  const params = new URLSearchParams({
+    autoplay: "1",
+    dnt: "1",
+    title: "0",
+    byline: "0",
+    portrait: "0",
+  });
+  if (hash) params.set("h", hash);
+  return `https://player.vimeo.com/video/${id}?${params}`;
 }

@@ -46,7 +46,9 @@
   /* Display: Fraunces, with its weights, in src/font-options.css.
      Body: Instrument Sans. Hand: Caveat (polaroid captions only).
      All self-hosted, loaded in src/fonts.js. */
-  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans:
+    "Instrument Sans Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
   --font-hand: "Caveat Variable", "Bradley Hand", "Segoe Print", cursive;
 
   --text-display-xl: clamp(3rem, 1.4rem + 6.4vw, 8rem);
@@ -184,11 +186,13 @@ body {
   .btn-primary {
     background: var(--c-fg);
     color: var(--c-bg);
-    box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--c-glow) 70%, transparent);
+    box-shadow: 0 10px 30px -10px
+      color-mix(in srgb, var(--c-glow) 70%, transparent);
   }
   .btn-primary:hover {
     background: #ffffff;
-    box-shadow: 0 14px 40px -10px color-mix(in srgb, var(--c-glow) 90%, transparent);
+    box-shadow: 0 14px 40px -10px
+      color-mix(in srgb, var(--c-glow) 90%, transparent);
   }
   .btn-ghost {
     border: 1px solid color-mix(in srgb, var(--c-fg) 22%, transparent);
@@ -221,7 +225,12 @@ body {
 }
 .hero-overlay {
   background:
-    linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.15) 60%, transparent),
+    linear-gradient(
+      to top,
+      rgb(0 0 0 / 0.75),
+      rgb(0 0 0 / 0.15) 60%,
+      transparent
+    ),
     linear-gradient(to right, #000000, #00000000);
   position: absolute;
   display: flex;
@@ -336,13 +345,27 @@ body {
   animation: grain 0.9s steps(6) infinite;
 }
 @keyframes grain {
-  0% { transform: translate(0, 0); }
-  17% { transform: translate(-6%, 4%); }
-  33% { transform: translate(5%, -7%); }
-  50% { transform: translate(-3%, 9%); }
-  67% { transform: translate(8%, 2%); }
-  83% { transform: translate(-9%, -4%); }
-  100% { transform: translate(2%, 6%); }
+  0% {
+    transform: translate(0, 0);
+  }
+  17% {
+    transform: translate(-6%, 4%);
+  }
+  33% {
+    transform: translate(5%, -7%);
+  }
+  50% {
+    transform: translate(-3%, 9%);
+  }
+  67% {
+    transform: translate(8%, 2%);
+  }
+  83% {
+    transform: translate(-9%, -4%);
+  }
+  100% {
+    transform: translate(2%, 6%);
+  }
 }
 
 /* ------------------------------------------------------------------
@@ -431,8 +454,20 @@ body {
 .marquee {
   --marquee-gap: 0.75rem;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
 }
 .marquee-track {
   display: flex;
@@ -476,8 +511,16 @@ body {
 /* Fallback art for media that hasn't loaded or isn't set yet. */
 .gradient-art {
   background:
-    radial-gradient(circle at var(--ga-x, 25%) var(--ga-y, 30%), color-mix(in srgb, var(--c-glow) 80%, transparent) 0, transparent 50%),
-    radial-gradient(circle at var(--ga-x2, 78%) var(--ga-y2, 72%), color-mix(in srgb, var(--c-glow-2) 70%, transparent) 0, transparent 50%),
+    radial-gradient(
+      circle at var(--ga-x, 25%) var(--ga-y, 30%),
+      color-mix(in srgb, var(--c-glow) 80%, transparent) 0,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at var(--ga-x2, 78%) var(--ga-y2, 72%),
+      color-mix(in srgb, var(--c-glow-2) 70%, transparent) 0,
+      transparent 50%
+    ),
     linear-gradient(160deg, var(--c-raised), var(--c-bg-deep));
 }
 .gradient-art::after {
@@ -487,6 +530,46 @@ body {
   background-image: var(--grain);
   opacity: 0.12;
   mix-blend-mode: overlay;
+}
+
+/* Text link: hairline underline that wipes out and redraws on hover, arrow nudges up-right. */
+.link-underline {
+  font-weight: 600;
+  color: var(--c-fg);
+  background: linear-gradient(currentColor, currentColor) no-repeat left
+    bottom / 100% 1px;
+  padding-bottom: 0.2em;
+}
+.link-underline > [aria-hidden] {
+  display: inline-block;
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+.link-underline:hover > [aria-hidden],
+.link-underline:focus-visible > [aria-hidden] {
+  transform: translate(2px, -2px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .link-underline:hover {
+    animation: link-redraw var(--duration-slow) var(--ease-out-expo);
+  }
+}
+@keyframes link-redraw {
+  0% {
+    background-position: right bottom;
+    background-size: 100% 1px;
+  }
+  45% {
+    background-position: right bottom;
+    background-size: 0% 1px;
+  }
+  46% {
+    background-position: left bottom;
+    background-size: 0% 1px;
+  }
+  100% {
+    background-position: left bottom;
+    background-size: 100% 1px;
+  }
 }
 
 /* ------------------------------------------------------------------
