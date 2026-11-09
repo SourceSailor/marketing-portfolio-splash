@@ -54,14 +54,14 @@ export const pipeline = {
     {
       id: "video",
       label: "Videography",
-      image: "portfolio/3xAfdjyQ.jpg",
+      image: "portfolio/Interview_BTS.jpg",
       icon: "video",
       target: "video",
     },
     {
       id: "photo",
       label: "Photography",
-      image: "portfolio/IMG_0023_copy.jpg",
+      image: "portfolio/french-toast-plate.jpg",
       icon: "photography",
       target: "photography",
     },
@@ -74,8 +74,8 @@ export const pipeline = {
     },
     {
       id: "web",
-      label: "Web",
-      image: "portfolio/360_F_265613983_5OnCh9KwG11tSmrNmuddFM3H7CS9qJJl.jpg",
+      label: "Web Dev",
+      image: "portfolio/Web_dev_hero.jpg",
       icon: "web",
       target: "web",
     },
