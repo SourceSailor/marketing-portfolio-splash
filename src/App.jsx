@@ -9,6 +9,7 @@ import Breadth from "./components/Breadth.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Lightbox from "./components/Lightbox.jsx";
+import Introduction from "./components/Introduction.jsx";
 
 /** Adds data-revealed to [data-reveal] elements as they enter the viewport. */
 function useReveal() {
@@ -50,6 +51,7 @@ export default function App() {
 
       <main id="main">
         <Hero />
+        <Introduction />
         <DisciplineIndex />
 
         {disciplines.map((d, i) => (
