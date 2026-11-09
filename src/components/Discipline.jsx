@@ -44,7 +44,7 @@ export default function Discipline({ discipline: d, index, onOpen }) {
       </ul>
 
       {d.stats.length > 0 && (
-        <dl className="mt-9 grid gap-x-6 gap-y-7 border-t border-line pt-7 sm:grid-cols-2">
+        <dl className="mt-9 grid gap-x-12 gap-y-7 border-t border-line pt-7 sm:grid-cols-2">
           {d.stats.map((s) => (
             <div key={s.label} className="flex flex-col-reverse">
               <dt className="mt-2 max-w-[26ch] text-sm leading-snug text-muted">
@@ -53,7 +53,7 @@ export default function Discipline({ discipline: d, index, onOpen }) {
               <dd>
                 <CountUp
                   value={s.value}
-                  className="stat-num block text-5xl leading-none text-fg md:text-6xl"
+                  className="stat-num block text-5xl leading-none text-fg lg:text-6xl"
                 />
               </dd>
             </div>
@@ -186,7 +186,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
         <div className={frame}>{inner}</div>
       )}
 
-      {(f.role || f.link) && (
+      {/* {(f.role || f.link) && (
         <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 text-sm">
           {f.role && (
             <span className="text-muted">
@@ -197,6 +197,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
               {f.role}
             </span>
           )}
+
           {f.link && (
             <a
               href={f.link.href}
@@ -208,7 +209,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
             </a>
           )}
         </figcaption>
-      )}
+      )} */}
     </figure>
   );
 }
