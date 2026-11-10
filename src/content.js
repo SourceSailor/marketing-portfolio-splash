@@ -177,11 +177,11 @@ export const disciplines = [
       { value: "10+", label: "Clients whose social I've run or supported" },
       {
         value: "+128%",
-        label: "More new followers per year, year one to year three",
+        label: "Increase in Annual Follower Acquisition Over 3 Years",
       },
       {
         value: "7×",
-        label: "Website clicks from social, year one to year three",
+        label: "Growth in Website Traffic from Social Media",
       },
     ],
     layout: "split",
@@ -246,7 +246,7 @@ export const disciplines = [
       client: "Edgewood",
       title: "Brand and website rebuild",
       role: "Site build, photo and video, SEO migration",
-      image: "edgewood-mockup-full-site.png",
+      image: "portfolio/edgewood-mockup-transparent-2000.png",
       alt: "The new Edgewood website on laptop and phone",
       vimeoId: null,
       link: null,
