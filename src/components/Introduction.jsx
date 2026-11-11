@@ -41,8 +41,8 @@ const Introduction = () => {
             Hi, I'm Kyle! I'm a Bay Area marketer, creator, and developer with a
             passion for turning ideas into meaningful work. Some days you'll
             find me behind a camera; others, I'm developing websites, building
-            campaigns, or digging into performance data. Here's a little look at
-            what I do, what I've made, and how I approach my work.
+            campaigns, or digging into performance data. Here's a glimpse into
+            my creative process and the many disciplines that shape it.
           </p>
         </div>
       </div>

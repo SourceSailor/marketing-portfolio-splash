@@ -14,8 +14,8 @@ export const hero = {
   title: "Idea to launch.",
   subtitle: "Without changing hands.",
   descriptionLines: [
-    "I bring strategy, creative, development, and",
-    "analytics together to turn ideas into results.",
+    // "I bring strategy, creative, development, and",
+    // "analytics together to turn ideas into results.",
   ],
 
   slides: [
@@ -199,7 +199,7 @@ export const disciplines = [
     id: "integrated",
     label: "Integrated campaigns",
     icon: "integrated",
-    headline: "One message, everywhere people look.",
+    headline: "One message, Everywhere People Look.",
     body: "An effective marketing pipeline connects strategy to execution. From audience segmentation and campaign planning to creative production, email marketing, paid media, and retargeting, every channel works toward a shared objective. Through performance analytics and KPI tracking, I build cohesive campaigns that drive awareness, engagement, and measurable results.",
     capabilities: [
       "Campaign strategy",
