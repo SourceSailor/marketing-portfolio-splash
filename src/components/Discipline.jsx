@@ -118,6 +118,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
       alt={f.vimeoId ? "" : f.alt}
       sizes={sizes}
       caption={label}
+      fit={f.transparent ? "contain" : "cover"}
       className="transition-transform duration-(--duration-slow) ease-(--ease-out-expo) group-hover:scale-[1.03]"
     />
   );
@@ -160,7 +161,7 @@ function FeatureMedia({ feature: f, label, ratio, sizes, onOpen }) {
     </>
   );
 
-  const frame = `frame group block w-full ${ratio}`;
+  const frame = `frame group block w-full ${ratio} ${f.transparent ? "bg-transparent shadow-none" : ""}`;
 
   return (
     <figure>

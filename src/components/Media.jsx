@@ -46,6 +46,7 @@ export function CldImage({
   caption,
   className = "",
   style,
+  fit = "cover",
 }) {
   const [failed, setFailed] = useState(false);
   if (!id || failed)
@@ -68,7 +69,7 @@ export function CldImage({
       fetchPriority={priority ? "high" : "auto"}
       decoding="async"
       onError={() => setFailed(true)}
-      className={`h-full w-full object-cover ${className}`}
+      className={`h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"} ${className}`}
     />
   );
 }

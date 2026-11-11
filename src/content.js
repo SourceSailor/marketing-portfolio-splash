@@ -214,7 +214,7 @@ export const disciplines = [
     stats: [
       { value: "15+", label: "Campaigns launched" },
       { value: "6", label: "Channels per campaign, on average" },
-      { value: "100K", label: "Emails sent" },
+      { value: "200K+", label: "Emails sent" },
     ],
     layout: "split",
     feature: {
@@ -229,33 +229,47 @@ export const disciplines = [
   },
   {
     id: "web",
-    label: "Web",
+    label: "Web Development",
     icon: "web",
-    headline: "Websites that carry the brand and the traffic.",
-    body: "I design and build sites in WordPress, Webflow, and React, and handle SEO migrations so a relaunch keeps the rankings the old site earned. For Edgewood, our team rebuilt the brand first, with a new logo, tagline, and guide, then built a site to carry it.",
+    headline: "From Concept to Code.",
+    body: "From marketing websites and interactive experiences to custom applications, dashboards, and software, I turn ideas into functional digital solutions. With experience in front-end development, UI/UX, and modern web technologies, I build solutions from the ground up to tell stories, visualize data, streamline workflows, and solve problems.",
     capabilities: [
       "UI/UX design",
-      "WordPress",
-      "Webflow",
+      "CMS Platforms",
       "React",
-      "SEO migration",
+      "SEO",
       "Analytics",
+      "Workflow Automation",
+      "E-commerce Platforms",
+      "API Integrations",
     ],
     stats: [
       {
-        value: "$900K",
-        label: "In donations the new brand and site have helped bring in",
+        value: "20+",
+        label: "Websites built",
+      },
+      {
+        value: "10+",
+        label: "Applications & tools developed",
+      },
+      {
+        value: "50+",
+        label: "Integrations implemented",
       },
     ],
     layout: "split",
     feature: {
       client: "Edgewood",
       title: "Brand and website rebuild",
-      role: "Site build, photo and video, SEO migration",
+      role: "Website Design & Development, Brand Photography & Videography, SEO Migration & Optimization",
       image: "portfolio/edgewood-mockup-transparent-2000.png",
+      transparent: true,
       alt: "The new Edgewood website on laptop and phone",
       vimeoId: "",
-      link: "",
+      link: {
+        href: "https://edgewood.org/",
+        label: "View Website",
+      },
     },
   },
   {
