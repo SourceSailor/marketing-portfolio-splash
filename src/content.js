@@ -346,15 +346,10 @@ export const disciplines = [
   },
 ];
 
-/**
- * Who the work has been for: one slow-drifting row of compact cards.
- * Each sector lists the kinds of organizations within it. Informational only.
- * // CONFIRM the organization types under each sector.
- */
 export const clientTypes = {
-  headline: "Who I've done it for",
+  headline: "The Organizations Behind the Projects",
   intro:
-    "Mostly lean, mission-driven teams that needed one person to cover a lot of ground.",
+    "A great storyteller knows how to see the world through someone else's eyes. Over the years, I've worked with a diverse range of businesses, organizations, and individuals, developing narratives that reflect who they are, resonate with their audiences, and make an impact.",
   sectors: [
     {
       name: "Nonprofits & fundraising",
