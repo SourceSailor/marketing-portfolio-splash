@@ -261,7 +261,7 @@ export const disciplines = [
     feature: {
       client: "Edgewood",
       title: "Brand and website rebuild",
-      role: "Website Design & Development, Brand Photography & Videography, SEO Migration & Optimization",
+      role: "Website Development, Brand Photography & Videography, SEO Migration & Optimization",
       image: "portfolio/edgewood-mockup-transparent-2000.png",
       transparent: true,
       alt: "The new Edgewood website on laptop and phone",
@@ -276,7 +276,7 @@ export const disciplines = [
     id: "photography",
     label: "Photography",
     icon: "photo",
-    headline: "A Story in Every Frame",
+    headline: "A Story in Every Frame.",
     body: "Every photograph tells a story. I approach each shot with a marketer’s eye, capturing moments and details that communicate a message, express a brand’s identity, and connect with an audience. The result is purposeful imagery that goes beyond the frame and becomes part of a larger visual story.",
     capabilities: [
       "Brand & Lifestyle",
@@ -347,7 +347,7 @@ export const disciplines = [
 ];
 
 export const clientTypes = {
-  headline: "The Organizations Behind the Projects",
+  headline: "The Organizations Behind the Projects.",
   intro:
     "A great storyteller knows how to see the world through someone else's eyes. Over the years, I've worked with a diverse range of businesses, organizations, and individuals, developing narratives that reflect who they are, resonate with their audiences, and make an impact.",
   sectors: [
@@ -398,7 +398,7 @@ export const clientTypes = {
 };
 
 export const about = {
-  headline: "More Than a Lens",
+  headline: "More Than a Lens.",
   body: [
     "For the past nine years, I've been driven by a passion for telling stories that connect with people, inspire ideas, and leave a lasting impression. My journey began behind a camera, capturing the still moments of life. Eventually, those moments started moving, and my passion for photography grew into a desire to tell bigger stories, reach new audiences, and build the platforms that bring those stories to life.",
 

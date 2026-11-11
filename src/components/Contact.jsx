@@ -27,13 +27,13 @@ export default function Contact() {
               <p className="mt-6 max-w-(--measure) text-lg leading-relaxed text-fg/90 md:text-xl">
                 {contact.body}
               </p>
-              <p className="mt-4 flex items-center gap-2.5 text-muted">
+              {/* <p className="mt-4 flex items-center gap-2.5 text-muted">
                 <span
                   aria-hidden="true"
                   className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px] shadow-emerald-400/70"
                 />
                 {person.availability}
-              </p>
+              </p> */}
             </div>
 
             <div className="flex flex-col items-start gap-5 md:col-span-4 md:col-start-9 md:items-end">
