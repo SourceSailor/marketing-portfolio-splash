@@ -398,10 +398,11 @@ export const clientTypes = {
 };
 
 export const about = {
-  headline: "I don't hand the work off. I see it through.",
+  headline: "More Than a Lens",
   body: [
-    "For seven years I've worked at a small agency where nobody owns just one piece. I plan campaigns, shoot and edit the content, run the paid social, help build the sites, and report on what actually worked.",
-    "It taught me to care about the result, not just my part of it. On a team, that means fewer handoffs, faster turnarounds, and one person who knows how every piece connects.",
+    "For the past nine years, I've been driven by a passion for telling stories that connect with people, inspire ideas, and leave a lasting impression. My journey began behind a camera, capturing the still moments of life. Eventually, those moments started moving, and my passion for photography grew into a desire to tell bigger stories, reach new audiences, and build the platforms that bring those stories to life.",
+
+    "Today, I bring photography, video, marketing, and development together to approach projects from multiple perspectives. I love working across disciplines, connecting creativity with technology, and finding new ways to turn ideas into meaningful experiences.",
   ],
   tools: [
     {
@@ -416,12 +417,12 @@ export const about = {
     { group: "Web", items: "WordPress, Webflow, React, Tailwind CSS" },
     {
       group: "Cameras",
-      items: "Sony A7R IV, A7S III, plus Fujifilm, Canon, Blackmagic",
+      items: "Sony, Canon, Blackmagic, Fujifilm, Nikon",
     },
     {
       group: "On every project",
       items:
-        "Copywriting, organic social, email marketing, analytics and reporting, project management",
+        "Content creation, organic social, web development, copywriting, email marketing, graphic design, analytics and reporting, project management",
     },
   ],
 };
